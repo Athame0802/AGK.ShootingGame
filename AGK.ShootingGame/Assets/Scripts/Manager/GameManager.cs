@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = default;
+    private int currentScene = default;
+    private float time = default;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -19,20 +22,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        time += Time.deltaTime;
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(Scenes.Stage1);
     }
 
-    // TODO : 스테이지 순서를 넣은 SO를 만들어 다음으로 이동 가능하게 하기
     public void MoveToNextScene()
     {
-
+        if (currentScene == Scenes.LAST_STAGE)
+        {
+            SceneManager.LoadScene(Scenes.End);
+            return;
+        }
+        
+        SceneManager.LoadScene(++currentScene);
     }
 
-    // TODO : Gameover 씬 추가해서 넣기
     public void GameOver()
     {
-
+        SceneManager.LoadScene(Scenes.GameOver);
     }   
 }
