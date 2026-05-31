@@ -29,14 +29,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(Scenes.Stage1);
+        SceneManager.LoadScene((int)Scenes.Stage1);
     }
 
     public void MoveToNextScene()
     {
-        if (currentScene == Scenes.LAST_STAGE)
+        if (currentScene == (int)Scenes.LAST_STAGE)
         {
-            SceneManager.LoadScene(Scenes.End);
+            SceneManager.LoadScene((int)Scenes.End);
             return;
         }
         
@@ -45,6 +45,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(Scenes.GameOver);
+        SceneManager.LoadScene((int)Scenes.GameOver);
     }   
 }

@@ -172,15 +172,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship1_0
+      name: ship1_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 184
-        width: 93
+        x: 1
+        y: 112
+        width: 90
         height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,15 +193,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship1_1
+      name: ship1_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 184
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 0
+        y: 192
+        width: 85
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,15 +214,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship1_2
+      name: ship1_1
       rect:
         serializedVersion: 2
-        x: 186
-        y: 184
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 93
+        y: 192
+        width: 85
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,15 +235,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship1_3
+      name: ship1_2
       rect:
         serializedVersion: 2
-        x: 279
-        y: 184
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 186
+        y: 192
+        width: 85
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,15 +256,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship1_4
+      name: ship1_3
       rect:
         serializedVersion: 2
-        x: 372
-        y: 184
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 279
+        y: 188
+        width: 86
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -277,15 +277,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship1_5
+      name: ship1_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
+        x: 372
+        y: 185
         width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,12 +301,12 @@ TextureImporter:
       name: ship1_6
       rect:
         serializedVersion: 2
-        x: 93
-        y: 112
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 98
+        y: 116
+        width: 80
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,12 +322,12 @@ TextureImporter:
       name: ship1_7
       rect:
         serializedVersion: 2
-        x: 186
-        y: 112
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 194
+        y: 117
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,12 +343,12 @@ TextureImporter:
       name: ship1_8
       rect:
         serializedVersion: 2
-        x: 279
-        y: 112
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 286
+        y: 118
+        width: 77
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -364,12 +364,12 @@ TextureImporter:
       name: ship1_9
       rect:
         serializedVersion: 2
-        x: 372
-        y: 112
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 376
+        y: 115
+        width: 79
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -385,12 +385,12 @@ TextureImporter:
       name: ship1_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 9
+        y: 45
+        width: 91
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -406,12 +406,12 @@ TextureImporter:
       name: ship1_11
       rect:
         serializedVersion: 2
-        x: 93
-        y: 40
-        width: 93
-        height: 72
-      alignment: 9
-      pivot: {x: 0.45698926, y: 0.5}
+        x: 98
+        y: 44
+        width: 79
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -434,14 +434,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ship1_0: 21300000
-      ship1_1: 21300002
+      ship1_0: 21300002
+      ship1_1: 21300004
       ship1_10: 21300020
       ship1_11: 21300022
-      ship1_2: 21300004
-      ship1_3: 21300006
-      ship1_4: 21300008
-      ship1_5: 21300010
+      ship1_12: 987939222
+      ship1_13: -231322053
+      ship1_14: 953164226
+      ship1_15: 6445806
+      ship1_16: -491001331
+      ship1_17: -962998226
+      ship1_18: 695684858
+      ship1_19: 542901344
+      ship1_2: 21300006
+      ship1_20: 1417775345
+      ship1_21: -1997691387
+      ship1_22: 448742177
+      ship1_23: 808639879
+      ship1_24: -1831251818
+      ship1_25: -1792625904
+      ship1_26: -1442898307
+      ship1_27: 116605339
+      ship1_28: -271855852
+      ship1_29: -1344297397
+      ship1_3: 21300008
+      ship1_30: 1738585373
+      ship1_31: -1272001317
+      ship1_32: -1098670534
+      ship1_33: -1201394310
+      ship1_34: 1826613297
+      ship1_35: 759008899
+      ship1_36: 2062618871
+      ship1_37: 1119188528
+      ship1_4: 21300010
+      ship1_5: 21300000
       ship1_6: 21300012
       ship1_7: 21300014
       ship1_8: 21300016
