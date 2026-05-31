@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private PlayerStatus playerStatus = default;
     [SerializeField] private List<Transform> AttackLocations = new(5);
 
+    private Coroutine currentAttackCorutine = default;
+
     private void Start()
     {
         if (!TryGetComponent<IPoolGetable>(out pool))
@@ -19,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         playerStatus.OnPowerUpLevelChanged += RefreshAttack;
         playerStatus.OnAttackCooldownChanged += RefreshAttack;
         
-        StartCoroutine(AttackByCoolDown());
+        currentAttackCorutine = StartCoroutine(AttackByCoolDown());
     }
 
     private void OnDestroy()
@@ -30,15 +32,13 @@ public class PlayerAttack : MonoBehaviour
 
     private void RefreshAttack()
     {
-        StopCoroutine(AttackByCoolDown());
+        StopCoroutine(currentAttackCorutine);
 
-        StartCoroutine(AttackByCoolDown());
+        currentAttackCorutine = StartCoroutine(AttackByCoolDown());
     }
 
     private IEnumerator AttackByCoolDown()
     {
-        D.Log("공격 실행");
-
         WaitForSeconds attackCD = new(playerStatus.AttackCooldown);
         
         while(true)
