@@ -9,7 +9,7 @@ public class Scroller : MonoBehaviour
     public int enemyCount { get; set; } = default;
     public int bossEnemyCount { get; set; } = default;
 
-    private float moveSpeed;
+    private float moveSpeed = default;
 
     private void Awake()
     {
@@ -24,6 +24,11 @@ public class Scroller : MonoBehaviour
     }
 
     private void Update()
+    {
+        Scroll(moveSpeed);
+    }
+
+    private void Scroll(float moveSpeed)
     {
         transform.position = new Vector2(
             transform.position.x,
