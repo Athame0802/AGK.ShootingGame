@@ -6,8 +6,28 @@ public class Scroller : MonoBehaviour
 {
     public static Scroller Instance = default;
     
-    public int enemyCount { get; set; } = default;
-    public int bossEnemyCount { get; set; } = default;
+    public int EnemyCount
+    {
+        get { return enemyCount; }
+        set 
+        {
+            enemyCount = value;
+            ScrollSpeedCheck();
+        }
+    }
+
+    public int BossEnemyCount
+    {
+        get { return bossEnemyCount; }
+        set 
+        {
+            bossEnemyCount = value;
+            ScrollSpeedCheck();
+        }
+    }
+
+    private int enemyCount = default;
+    private int bossEnemyCount = default;
 
     private float moveSpeed = default;
 
@@ -21,6 +41,8 @@ public class Scroller : MonoBehaviour
         {
             Destroy(this);
         }
+
+        ScrollSpeedCheck();
     }
 
     private void Update()
@@ -37,17 +59,17 @@ public class Scroller : MonoBehaviour
 
     public void ScrollSpeedCheck()
     {
-        if (enemyCount <= 0 && bossEnemyCount <= 0)
+        if (BossEnemyCount > 0)
+        {
+            moveSpeed = 0f;
+        }
+
+        if (EnemyCount <= 0 && BossEnemyCount <= 0)
         {
             moveSpeed = 1f;
             return;
         }
-
-        if (bossEnemyCount > 0)
-        {
-            moveSpeed = 0f;
-        }
         
-        moveSpeed = 0.75f / enemyCount;
+        moveSpeed = 0.75f;
     }
 }

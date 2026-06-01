@@ -7,9 +7,9 @@ public class PlayerBulletPool : MonoBehaviour, IPoolGetable
 {
     [SerializeField] private GameObject playerBulletPrefab = default;
     private ObjectPool<PlayerBullet> playerBulletPool = default;
-    private const int PLAYER_BULLET_CAPACITY = 1000;
-    private const int PLAYER_BULLET_MAX = 10000;
-    private const int PLAYER_BULLET_PRE_WARM_COUNT = 500;
+    private const int PLAYER_BULLET_CAPACITY = 100;
+    private const int PLAYER_BULLET_MAX = 500;
+    private const int PLAYER_BULLET_PRE_WARM_COUNT = 30;
 
     private void Awake()
     {
