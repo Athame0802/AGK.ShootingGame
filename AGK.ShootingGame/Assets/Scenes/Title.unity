@@ -732,7 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 11400000, guid: e365e3236dc6099439a6d1b505c6ea3d, type: 2}
   originalPlayerStatus: {fileID: 11400000, guid: 0989b615b86819c458d93cc53d983a67, type: 2}
-  bestRecordPlayerStatus: {fileID: 11400000, guid: e365e3236dc6099439a6d1b505c6ea3d, type: 2}
+  bestRecordPlayerStatus: {fileID: 11400000, guid: 6f2e9d787251e4e4d83319ff243abef2, type: 2}
 --- !u!4 &1127113455
 Transform:
   m_ObjectHideFlags: 0

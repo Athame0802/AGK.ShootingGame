@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private IPoolGetable pool = default;
+    [SerializeField] private PlayerBullet playerBulletPrefab = default;
     [SerializeField] private PlayerStatus playerStatus = default;
     [SerializeField] private List<Transform> AttackLocations = new(5);
 
@@ -12,12 +12,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        if (!TryGetComponent<IPoolGetable>(out pool))
-        {
-            D.LogError("플레이어가 IPoolGetable을 찾지 못함!");
-            return;
-        }
-
         playerStatus.OnPowerUpLevelChanged += RefreshAttack;
         playerStatus.OnAttackCooldownChanged += RefreshAttack;
         
@@ -48,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0; i < playerStatus.PowerUpLevel; i++)
             {
-                pool.GetAtLocation(AttackLocations[i]);
+                playerBulletPrefab.SpawnAtLocation(transform);
             }
 
             yield return attackCD;

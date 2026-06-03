@@ -135,8 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa79f94a8c21bd6408095bd3e6637c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: -1447798390358586449, guid: 7b1f8dfce12ff4b4986ef4e624aabebe, type: 3}
   attackCooldown: 1
   enemyHealth: {fileID: 9078481052943736398}
+  isBoss: 0
 --- !u!114 &9078481052943736398
 MonoBehaviour:
   m_ObjectHideFlags: 0

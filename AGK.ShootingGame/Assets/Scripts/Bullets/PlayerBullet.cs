@@ -2,64 +2,22 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PlayerBullet : MonoBehaviour, IDespawnable, IBullet
+public class PlayerBullet : Bullet
 {
-    private ObjectPool<PlayerBullet> pool = default;
-    [SerializeField] private float bulletSpeed = default;
-    [SerializeField] private Vector2 checkboxSize = new(0.2f, 0.2f);
-
-    public bool IsDespawned { get; set; } = default;
-
-    public void SetPool(ObjectPool<PlayerBullet> pool)
-    {
-        this.pool = pool;
-    }
-
     private void Update()
     {
         Move(bulletSpeed);
-        CheckObject(Layers.Enemy);
+        CheckLayerAndDamage(Layers.Enemy, base.damage);
     }
 
-    private void Move(float bulletSpeed)
+    public override void MakeMyTypeBulletPool(IBulletPool bulletPool)
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + bulletSpeed * Time.deltaTime, 0);
+        base.bulletPool = bulletPool;
+        bulletPool.MakeBulletPool<PlayerBullet>(this);
     }
 
-    public void Despawn()
+    public override void SpawnAtLocation(Transform transform)
     {
-        if (IsDespawned)
-        {
-            return;
-        }
-
-        IsDespawned = true;
-        pool.Release(this);
-    }
-
-    public void CheckObject(int layer)
-    {
-        Collider2D collider = Physics2D.OverlapBox(
-            transform.position,
-            checkboxSize,
-            0f,
-            1 << layer
-            );
-
-        if (collider == null)
-        {
-            return;
-        }
-
-        if (!collider.TryGetComponent<IDamageable>(out IDamageable damageable))
-        {
-            return;
-        }
-
-        if (damageable.IsEnabled)
-        { 
-            damageable.TakeDamage(1);
-            Despawn();
-        }
+        bulletPool.Spawn<PlayerBullet>(transform.position, transform.rotation);
     }
 }

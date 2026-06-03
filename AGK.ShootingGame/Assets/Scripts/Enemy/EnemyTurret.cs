@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class EnemyTurret : MonoBehaviour, IEnemy
 {
-    private IPoolGetable pool = default;
-
+    [SerializeField] private Bullet bulletPrefab = default;
     [SerializeField] private float attackCooldown = default;
     [SerializeField] private EnemyHealth enemyHealth = default;
     [SerializeField] private bool isBoss = default;
 
-    private Transform playerTransform = default;
-
-    public bool IsEnabled { set { enabled = value; enemyHealth.enabled = value; } }
+    public bool IsEnabled { set { enabled = value; enemyHealth.enabled = value; } } // 그냥 IsSpawned면 총알 발사 되게?
     public bool IsBoss { get { return isBoss; } private set { isBoss = value; } }
     public bool IsSpawned { get; set; }
 
@@ -24,15 +21,17 @@ public class EnemyTurret : MonoBehaviour, IEnemy
 
     private void OnEnable()
     {
-        playerTransform = GameObject.FindAnyObjectByType<PlayerAttack>().transform;
-
-        pool = EnemyBulletOrbPooler.Instance as IPoolGetable;
         StartCoroutine(AttackByCoolDown());
     }
 
     private void Update()
     {
-        Vector3 direction = playerTransform.position - transform.position;
+        RotateToPlayer();
+    }
+
+    private void RotateToPlayer()
+    {
+        Vector3 direction = Bullet.playerTransform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
@@ -57,7 +56,7 @@ public class EnemyTurret : MonoBehaviour, IEnemy
 
         while (true)
         {
-            pool.GetAtLocation(transform);
+            bulletPrefab.SpawnAtLocation(transform);
 
             yield return attackCD;
         }
