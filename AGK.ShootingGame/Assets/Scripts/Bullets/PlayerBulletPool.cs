@@ -32,6 +32,7 @@ public class PlayerBulletPool : MonoBehaviour, IPoolGetable
 
         bullet.transform.position = location.position;
         bullet.transform.rotation = location.rotation;
+        bullet.gameObject.SetActive(true);
     }
 
     private void PreWarmPool()
@@ -60,13 +61,12 @@ public class PlayerBulletPool : MonoBehaviour, IPoolGetable
 
     private void OnTakeFromPool(PlayerBullet bullet)
     {
-        bullet.gameObject.SetActive(true);
         bullet.IsDespawned = false;
     }
 
     private void OnReturnedToPool(PlayerBullet bullet)
     {
-        bullet.IsDespawned = true;
+        bullet.IsDespawned = true;  
         bullet.gameObject.SetActive(false);
     }
 

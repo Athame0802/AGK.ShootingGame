@@ -32,7 +32,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void RefreshAttack()
     {
-        StopCoroutine(currentAttackCorutine);
+        if (currentAttackCorutine != null)
+        { 
+            StopCoroutine(currentAttackCorutine);
+        }
 
         currentAttackCorutine = StartCoroutine(AttackByCoolDown());
     }

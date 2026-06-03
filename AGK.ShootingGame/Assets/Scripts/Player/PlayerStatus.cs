@@ -16,12 +16,16 @@ public class PlayerStatus : ScriptableObject
             if (value > 5)
             {
                 _powerUpLevel = 5;
+                OnPowerUpLevelChanged?.Invoke();
                 Health++;
+                return;
             }
 
             if (value < 0)
             {
                 _powerUpLevel = 0;
+                OnPowerUpLevelChanged?.Invoke();
+                return;
             }
 
             _powerUpLevel = value; 
@@ -38,6 +42,8 @@ public class PlayerStatus : ScriptableObject
             {
                 _attackCooldown = 0.1f; // 사실 이것도 상수로 해야하는데
                 Health++;
+                OnAttackCooldownChanged?.Invoke();
+                return;
             }
 
             _attackCooldown = value; 
@@ -51,6 +57,13 @@ public class PlayerStatus : ScriptableObject
         get { return _health; }
         set
         {
+            if (value > Max_health)
+            {
+                _health = Max_health;
+                OnHealthChanged?.Invoke();
+                return;
+            }
+
             _health = value;
             OnHealthChanged?.Invoke();
         }

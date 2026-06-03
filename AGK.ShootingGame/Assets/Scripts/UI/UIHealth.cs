@@ -12,6 +12,11 @@ public class UIHealth : MonoBehaviour
         playerStatus.OnHealthChanged += CheckUI;
     }
 
+    private void Start()
+    {
+        CheckUI();
+    }
+
     private void OnDestroy()
     {
         playerStatus.OnHealthChanged -= CheckUI;

@@ -61,7 +61,8 @@ public class Scroller : MonoBehaviour
     {
         if (BossEnemyCount > 0)
         {
-            moveSpeed = 0f;
+            moveSpeed = 0.15f;
+            return;
         }
 
         if (EnemyCount <= 0 && BossEnemyCount <= 0)

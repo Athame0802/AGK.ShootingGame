@@ -6,6 +6,7 @@ public class PlayerBullet : MonoBehaviour, IDespawnable, IBullet
 {
     private ObjectPool<PlayerBullet> pool = default;
     [SerializeField] private float bulletSpeed = default;
+    [SerializeField] private Vector2 checkboxSize = new(0.2f, 0.2f);
 
     public bool IsDespawned { get; set; } = default;
 
@@ -32,6 +33,7 @@ public class PlayerBullet : MonoBehaviour, IDespawnable, IBullet
             return;
         }
 
+        IsDespawned = true;
         pool.Release(this);
     }
 
@@ -39,7 +41,7 @@ public class PlayerBullet : MonoBehaviour, IDespawnable, IBullet
     {
         Collider2D collider = Physics2D.OverlapBox(
             transform.position,
-            new Vector2(transform.localScale.x, transform.localScale.y),
+            checkboxSize,
             0f,
             1 << layer
             );
@@ -57,7 +59,7 @@ public class PlayerBullet : MonoBehaviour, IDespawnable, IBullet
         if (damageable.IsEnabled)
         { 
             damageable.TakeDamage(1);
-            pool.Release(this);
+            Despawn();
         }
     }
 }

@@ -24,7 +24,10 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this);
+            return;
         }
+
+        currentScene = SceneManager.GetActiveScene().buildIndex;
 
         ResetPlayerStatus(playerStatus, originalPlayerStatus);
         ResetPlayerStatus(bestRecordPlayerStatus, originalPlayerStatus);
@@ -39,13 +42,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene((int)Scenes.Stage1);
 
-        currentScene = (int)Scenes.Stage1;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         playerStatus.BestScene = (int)Scenes.Stage1;
         ResetPlayerStatus(bestRecordPlayerStatus, playerStatus);
     }
 
     public void MoveToNextScene()
     {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+
         if (currentScene == (int)Scenes.LAST_STAGE)
         {
             SceneManager.LoadScene((int)Scenes.End);
@@ -77,6 +82,7 @@ public class GameManager : MonoBehaviour
         a.Health = b.Health;
         a.PowerUpLevel = b.PowerUpLevel;
         a.AttackCooldown = b.AttackCooldown;
+        a.BestScene = b.BestScene;
     }
 
     public void MoveToBestScene()
@@ -86,8 +92,8 @@ public class GameManager : MonoBehaviour
 
     public void OnRestartButtonClicked()
     {
-        MoveToBestScene();
         ResetPlayerStatus(playerStatus, bestRecordPlayerStatus);
+        MoveToBestScene();
     }
 
     public void OnStartButtonClicked()
