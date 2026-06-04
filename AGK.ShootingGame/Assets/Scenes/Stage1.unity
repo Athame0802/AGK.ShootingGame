@@ -2499,6 +2499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4d4ddf5aa473c4fb9b94491cc7f9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossScrollTimeLimit: 5
 --- !u!212 &1953547105
 SpriteRenderer:
   m_ObjectHideFlags: 0

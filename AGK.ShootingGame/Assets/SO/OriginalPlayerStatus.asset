@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2919842b33d43eb4a98cb17bf67fd51c, type: 3}
   m_Name: OriginalPlayerStatus
   m_EditorClassIdentifier: 
+  Max_health: 5
   _attackCooldown: 0.75
   _powerUpLevel: 1
-  Health: 5
+  _health: 5
+  BestScene: 0

@@ -5,13 +5,16 @@ using UnityEngine;
 public class Scroller : MonoBehaviour
 {
     public static Scroller Instance = default;
-    
+
+    [SerializeField] private float bossScrollTimeLimit = default;
+
     public int EnemyCount
     {
         get { return enemyCount; }
         set 
         {
             enemyCount = value;
+            D.LogWarning($"enemyCount: {enemyCount}");
             ScrollSpeedCheck();
         }
     }
@@ -22,6 +25,7 @@ public class Scroller : MonoBehaviour
         set 
         {
             bossEnemyCount = value;
+            D.LogWarning($"bossEnemyCount: {bossEnemyCount}");
             ScrollSpeedCheck();
         }
     }
@@ -30,6 +34,7 @@ public class Scroller : MonoBehaviour
     private int bossEnemyCount = default;
 
     private float moveSpeed = default;
+    private bool isBossScrollTimeAlreadyPassed = default;
 
     private void Awake()
     {
@@ -61,7 +66,9 @@ public class Scroller : MonoBehaviour
     {
         if (BossEnemyCount > 0)
         {
-            moveSpeed = 0.1f;
+            if (!isBossScrollTimeAlreadyPassed)
+                StartCoroutine(LimitBossScrollTime(bossScrollTimeLimit));
+            
             return;
         }
 
@@ -72,5 +79,24 @@ public class Scroller : MonoBehaviour
         }
         
         moveSpeed = 0.75f;
+    }
+
+    private IEnumerator LimitBossScrollTime(float bossScrollTimeLimit)
+    {
+        if (isBossScrollTimeAlreadyPassed)
+        {
+            yield break;
+        }
+        
+        D.LogWarning("보스 스크롤 타임 제한 실행됨");
+        isBossScrollTimeAlreadyPassed = true;
+
+        WaitForSeconds bossScrollTime = new(bossScrollTimeLimit);
+
+        moveSpeed = 0.6f;
+
+        yield return bossScrollTime;
+
+        moveSpeed = 0f;
     }
 }
