@@ -5,10 +5,14 @@ using UnityEngine.UIElements;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    [Header("For Run")]
     [SerializeField] private Animator dieAnimator = default;
     [SerializeField] private PlayerStatus playerStatus = default;
     [SerializeField] private float fallSpeed = default;
     [SerializeField] private Camera mainCamera = default;
+
+    [Header("For Other")]
+    [SerializeField] private PlayerAttack playerAttack = default;
 
     private const float FALL_SPEED_COEFFICIENT = 0.001f;
     private float cameraDownEnd = default;
@@ -32,6 +36,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         dieAnimator.SetBool("expl", true);
         InputManager.Instance.enabled = false;
+
+        if (playerAttack != null)
+        {
+            playerAttack.StopAttack();
+        }
+
         StartCoroutine(DieAnimation());
     }
 

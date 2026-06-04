@@ -1028,6 +1028,7 @@ MonoBehaviour:
   playerStatus: {fileID: 11400000, guid: e365e3236dc6099439a6d1b505c6ea3d, type: 2}
   fallSpeed: 0.01
   mainCamera: {fileID: 125603904}
+  playerAttack: {fileID: 746729049}
 --- !u!61 &746729058
 BoxCollider2D:
   m_ObjectHideFlags: 0
