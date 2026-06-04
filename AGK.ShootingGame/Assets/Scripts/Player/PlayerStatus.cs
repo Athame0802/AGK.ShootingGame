@@ -29,6 +29,7 @@ public class PlayerStatus : ScriptableObject
             }
 
             _powerUpLevel = value; 
+            D.LogWarning("플레이어 파워업 레벨이 성공적으로 변경됨");
             OnPowerUpLevelChanged?.Invoke();  
         } 
     }
@@ -46,7 +47,8 @@ public class PlayerStatus : ScriptableObject
                 return;
             }
 
-            _attackCooldown = value; 
+            _attackCooldown = value;
+            D.LogWarning("플레이어 공격 쿨타임 레벨이 성공적으로 변경됨");
             OnAttackCooldownChanged?.Invoke(); 
         } 
     
@@ -65,6 +67,7 @@ public class PlayerStatus : ScriptableObject
             }
 
             _health = value;
+            D.LogWarning("플레이어 체력이 성공적으로 변경됨");
             OnHealthChanged?.Invoke();
         }
     }

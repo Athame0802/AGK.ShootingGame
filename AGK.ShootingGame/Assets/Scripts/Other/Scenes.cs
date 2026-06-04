@@ -1,4 +1,5 @@
-﻿public enum Scenes
+﻿[System.Serializable]
+public enum Scenes
 {
     LAST_STAGE = 2,
     Stage1 = 1,

@@ -26,9 +26,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void RefreshAttack()
     {
+        D.LogWarning("플레이어 공격 리스타트");
         if (currentAttackCorutine != null)
         { 
             StopCoroutine(currentAttackCorutine);
+            D.LogWarning("플레이어 현 공격을 성공적으로 찾음");
         }
 
         currentAttackCorutine = StartCoroutine(AttackByCoolDown());
@@ -36,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator AttackByCoolDown()
     {
+        D.LogWarning("플레이어 공격 시작됨");
         WaitForSeconds attackCD = new(playerStatus.AttackCooldown);
         
         while(true)
