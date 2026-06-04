@@ -5,7 +5,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int health = default;
     [SerializeField] private EnemyDropItem enemyDropItem = default;
-    public bool IsEnabled { get { return this.enabled; } } // 리펙토링 시급
 
     public void TakeDamage(int damage)
     {

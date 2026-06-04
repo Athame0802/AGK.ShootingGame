@@ -7,26 +7,29 @@ public class EnemyTurret : MonoBehaviour, IEnemy
 {
     [SerializeField] private Bullet bulletPrefab = default;
     [SerializeField] private float attackCooldown = default;
-    [SerializeField] private EnemyHealth enemyHealth = default;
     [SerializeField] private bool isBoss = default;
 
-    public bool IsEnabled { set { enabled = value; enemyHealth.enabled = value; } } // 그냥 IsSpawned면 총알 발사 되게?
     public bool IsBoss { get { return isBoss; } private set { isBoss = value; } }
-    public bool IsSpawned { get; set; }
+    public bool IsSpawned { get; set; } = false;
+
 
     private void Awake()
     {
-        IsEnabled = false;
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(AttackByCoolDown());
+        IsSpawned = false;
     }
 
     private void Update()
     {
-        RotateToPlayer();
+        if (IsSpawned)
+        {
+            RotateToPlayer();
+        }
+    }
+   
+    public void OnTouchSpawnLine()
+    {
+        IsSpawned = true;
+        StartCoroutine(AttackByCoolDown());
     }
 
     private void RotateToPlayer()

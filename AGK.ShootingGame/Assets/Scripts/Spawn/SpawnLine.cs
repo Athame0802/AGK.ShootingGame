@@ -30,8 +30,7 @@ public class SpawnLine : MonoBehaviour
 
             if (!enemy.IsSpawned)
             {
-                enemy.IsSpawned = true;
-                enemy.IsEnabled = true;
+                enemy.OnTouchSpawnLine();
                 Scroller.Instance.EnemyCount++;
                 D.Log($"적 카운트 : {Scroller.Instance.EnemyCount}");
 

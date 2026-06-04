@@ -2,7 +2,8 @@
 
 public interface IEnemy
 {
-    public bool IsSpawned { get; set; }
     public bool IsBoss { get; }
-    public bool IsEnabled { set; }
+    public bool IsSpawned { get; set; }
+
+    public void OnTouchSpawnLine();
 }

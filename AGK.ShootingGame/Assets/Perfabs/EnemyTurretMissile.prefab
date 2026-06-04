@@ -130,14 +130,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729034358292677732}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa79f94a8c21bd6408095bd3e6637c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1579097654129323249, guid: 14793b10babf62b44b550b6c3016a38c, type: 3}
   attackCooldown: 6
-  enemyHealth: {fileID: 5502705019913096554}
   isBoss: 0
 --- !u!114 &5502705019913096554
 MonoBehaviour:

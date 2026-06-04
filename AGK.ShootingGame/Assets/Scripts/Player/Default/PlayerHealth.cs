@@ -10,8 +10,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float fallSpeed = default;
     [SerializeField] private Camera mainCamera = default;
 
-    public bool IsEnabled { get { return this.enabled; } }
-
     private const float FALL_SPEED_COEFFICIENT = 0.001f;
     private float cameraDownEnd = default;
 
