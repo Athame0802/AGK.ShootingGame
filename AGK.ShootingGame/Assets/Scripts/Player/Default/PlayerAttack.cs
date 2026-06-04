@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0; i < playerStatus.PowerUpLevel; i++)
             {
-                playerBulletPrefab.SpawnAtLocation(transform);
+                playerBulletPrefab.SpawnAtLocation(AttackLocations[i]);
             }
 
             yield return attackCD;
