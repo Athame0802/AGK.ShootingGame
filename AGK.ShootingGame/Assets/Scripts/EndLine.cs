@@ -19,11 +19,12 @@ public class EndLine : MonoBehaviour
             return;
         }
 
-        if (!playerCollider.TryGetComponent<PlayerMove>(out PlayerMove playerMove))
+        if (!playerCollider.TryGetComponent<PlayerMove>(out PlayerMove playerMove) || !playerCollider.TryGetComponent<PlayerAttack>(out PlayerAttack playerAttack))
         {
             return;
         }
 
+        playerAttack.StopAttack();
         playerMove.EndStage();
     }
 }

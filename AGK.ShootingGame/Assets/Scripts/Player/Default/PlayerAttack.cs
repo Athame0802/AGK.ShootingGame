@@ -36,6 +36,14 @@ public class PlayerAttack : MonoBehaviour
         currentAttackCorutine = StartCoroutine(AttackByCoolDown());
     }
 
+    public void StopAttack()
+    {
+        if (currentAttackCorutine != null)
+        {
+            StopCoroutine(currentAttackCorutine);
+        }
+    }
+
     private IEnumerator AttackByCoolDown()
     {
         D.LogWarning("플레이어 공격 시작됨");
